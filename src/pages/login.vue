@@ -16,10 +16,10 @@
     </el-carousel>
     <el-form :model="from" ref="from" class="login-from">
       <el-form-item label="账号/邮箱" prop="usrName">
-        <el-input type="text" v-model="from.usrName" autocomplete="off" placeholder="admin"></el-input>
+        <el-input type="text" v-model="from.usrName" autocomplete="off" placeholder="admin" @keyup.enter.native="login"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="pass">
-        <el-input type="password" v-model="from.pass" autocomplete="off" placeholder="123456/666666"></el-input>
+        <el-input type="password" v-model="from.pass" autocomplete="off" placeholder="123456/666666" @keyup.enter.native="login"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="login">登陆</el-button>
