@@ -1,6 +1,8 @@
 # my-demo
 
 > A Vue.js project
+ 
+这是一个vue-cli2+element-ui+axios+Vuex的项目，只是把自己比较常用的东西整合在一起
 
 ## Build Setup
 

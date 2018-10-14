@@ -10,10 +10,10 @@
 export default {
   props: {
     tabbarText: {
-        type: Array,
-        default: function () {
-            return []
-        }
+      type: Array,
+      default: function () {
+        return []
+      }
     }
   },
   data () {

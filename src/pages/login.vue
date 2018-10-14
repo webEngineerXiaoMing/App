@@ -70,8 +70,15 @@ export default {
     //   tabbarText: ['体验登陆', '忘记密码', '注册账号', '注册账号']
     }
   },
+  mounted () {},
+  computed: {
+    getCount () {
+      return this.$store.state.count // 到状态库拿东西
+    }
+  },
   methods: {
     login () {
+      console.log(this.getCount)
       if (this.from.usrName === 'admin' && (this.from.pass === '123456' || this.from.pass === '666666')) { // 先前端进行验证
         this.$router.push('/header')
       } else {

@@ -9,6 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/login',
       name: 'App',
       component: () => import('../App')
     },
@@ -20,7 +21,14 @@ export default new Router({
     {
       path: '/header',
       name: 'header',
-      component: () => import('../pages/fristHeader')
+      component: () => import('../pages/fristHeader'),
+      children: [
+        {
+          path: '',
+          name: 'echarts',
+          component: () => import('../pages/echarts')
+        }
+      ]
     }
   ]
 })
