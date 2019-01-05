@@ -7,6 +7,16 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import axios from 'axios'
+import VueQuillEditor from 'vue-quill-editor'
+// require styles 引入样式
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+import VueDND from 'awe-dnd'
+
+Vue.use(VueDND)
+
+Vue.use(VueQuillEditor)
 axios.defaults.baseURL = '/api'
 axios.defaults.headers.common['Authorization'] = 'zhangluangyi@163.com'
 axios.defaults.headers.post['Content-Type'] = 'application/json'

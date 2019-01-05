@@ -18,7 +18,7 @@ export default {
   },
   data () {
     return {
-      activeTxt: '图表'
+      activeTxt: this.tabbarText[0]
     }
   },
   watch: {},
@@ -26,13 +26,7 @@ export default {
     tabToLink (key) {
       console.log('key', key)
       this.activeTxt = key
-      switch (key.trim()) {
-        case '图表':
-          this.$router.push('/header')
-          break
-        case '二维码':
-          this.$router.push('/header/qrcode')
-      }
+      this.$emit('tabToLink', key)
     }
   }
 }

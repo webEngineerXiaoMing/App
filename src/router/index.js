@@ -32,6 +32,16 @@ export default new Router({
           path: '/header/qrcode',
           name: 'qrcode',
           component: () => import('../pages/qrcode')
+        },
+        {
+          path: '/header/quillEditor',
+          name: 'quillEditor',
+          component: () => import('../pages/quillEditor')
+        },
+        {
+          path: '/header/drag',
+          name: 'drag',
+          component: () => import('../pages/drag')
         }
       ]
     }
