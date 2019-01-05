@@ -1,7 +1,7 @@
 <template>
   <div class="frist-tabbar">
     <ul v-for="item in tabbarText" :key="item" class="fl clear" :style="{width: ((100 / tabbarText.length) + '%'), height: '100%'}" @click='tabToLink(item)'>
-        <li>{{item}}</li>
+        <li :class='{active:(activeTxt===item)}' >{{item}}</li>
     </ul>
   </div>
 </template>
@@ -17,12 +17,15 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      activeTxt: '图表'
+    }
   },
   watch: {},
   methods: {
     tabToLink (key) {
       console.log('key', key)
+      this.activeTxt = key
       switch (key.trim()) {
         case '图表':
           this.$router.push('/header')
@@ -43,5 +46,9 @@ export default {
 }
 .frist-tabbar>ul {
   line-height: 60px;
+}
+.active {
+  color: #303030;
+  background-color: #fff;
 }
 </style>
