@@ -27,6 +27,11 @@ export default new Router({
           path: '',
           name: 'echarts',
           component: () => import('../pages/echarts')
+        },
+        {
+          path: '/header/qrcode',
+          name: 'qrcode',
+          component: () => import('../pages/qrcode')
         }
       ]
     }

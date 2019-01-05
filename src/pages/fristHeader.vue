@@ -2,9 +2,9 @@
     <div class="frist-header">
         <tabbar :tabbarText="tabbarText"></tabbar>
         <!-- <keep-alive> -->
-          <transition>
+          <!-- <transition> -->
             <router-view></router-view>
-          </transition>
+          <!-- </transition> -->
         <!-- </keep-alive> -->
     </div>
 </template>

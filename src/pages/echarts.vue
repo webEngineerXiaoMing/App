@@ -1,19 +1,47 @@
 <template>
   <div class="echarts-list">
     <div id="echarts"></div>
-    <el-input v-model="city" placeholder="请输入城市"></el-input>
-    <el-button @click="apiClick">百度音乐</el-button>
   </div>
 </template>
 
 <script>
+import echarts from 'echarts'
 export default {
   data () {
     return {
       city: ''
     }
   },
+  mounted () {
+    this.bar()
+  },
   methods: {
+    globe () {
+    },
+    bar () {
+      let bar = echarts.init(document.getElementById('echarts'))
+      let option = {
+        title: {
+          text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+          data: ['销量']
+        },
+        xAxis: {
+          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        },
+        yAxis: {},
+        series: [
+          {
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+          }
+        ]
+      }
+      bar.setOption(option)
+    },
     apiClick () {
       // let params = {
       //   LoginForm: {
@@ -29,17 +57,14 @@ export default {
       //   .catch(err => {
       //     console.log(err)
       //   })
-      this.$axios.get('movie/search?q=神秘巨星&start=0&count=10')
-        .then(response => {
-          console.log(response.data)
-        }).catch(error => {
-          console.log(error)
-        })
     }
   }
 }
 </script>
 
 <style>
-
+#echarts {
+  width: 100%;
+  height: 500px;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="frist-tabbar">
-    <ul v-for="(item, index) in tabbarText" :key="index" class="fl clear" :style="{width: ((100 / tabbarText.length) + '%'), height: '100%'}">
+    <ul v-for="item in tabbarText" :key="item" class="fl clear" :style="{width: ((100 / tabbarText.length) + '%'), height: '100%'}" @click='tabToLink(item)'>
         <li>{{item}}</li>
     </ul>
   </div>
@@ -19,7 +19,19 @@ export default {
   data () {
     return {}
   },
-  watch: {}
+  watch: {},
+  methods: {
+    tabToLink (key) {
+      console.log('key', key)
+      switch (key.trim()) {
+        case '图表':
+          this.$router.push('/header')
+          break
+        case '二维码':
+          this.$router.push('/header/qrcode')
+      }
+    }
+  }
 }
 </script>
 
