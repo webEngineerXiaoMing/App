@@ -13,6 +13,9 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 import VueDND from 'awe-dnd'
+import DrawerLayout from 'vue-drawer-layout'
+
+Vue.use(DrawerLayout)
 
 Vue.use(VueDND)
 

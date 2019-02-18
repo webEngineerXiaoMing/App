@@ -1,6 +1,8 @@
 <template>
   <div class="echarts-list">
     <div id="echarts"></div>
+    <canvas id="drawing" width="200" height="200"></canvas>
+    <canvas id="webgl" width="200" height="200"></canvas>
   </div>
 </template>
 
@@ -14,8 +16,42 @@ export default {
   },
   mounted () {
     this.bar()
+    this.canvasDom()
   },
   methods: {
+    canvasDom () {
+      let drawing = document.getElementById('drawing')
+      if (drawing.getContext) {
+        let context = drawing.getContext('2d')
+        context.strokeStyle = '#ff0000'
+        context.strokeRect(10, 10, 50, 50)
+        context.strokeStyle = 'rgba(0,0,255,.5)'
+        context.strokeRect(30, 30, 50, 50)
+      }
+    },
+    webGL1 () {
+      let webgl = document.getElementById('webgl')
+      if (webgl.getContext) {
+        let gl = webgl.getContext('experimental-webgl')
+        if (gl) {
+          let vertices = new Float32Array([0, 1, 1, -1, -1, -1])
+          let buffer = gl.createBuffer()
+          let vertexSetSize = 2
+          let vertextSetCount = vertices.length / vertexSetSize
+          let uColor
+          let aVertextPosition
+          let program = gl.createProgram()
+          gl.bindBuffer(gl.ARRAY._BUFFER, buffer)
+          gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC.DRAW)
+          uColor = gl.getUniformLocation(program, 'uColor')
+          gl.uniformn4fv(uColor, [0, 0, 0, 1])
+          aVertextPosition = gl.getAtrribLocation(program, 'aVertextPosition')
+          gl.enableVertexAtrribArray(aVertextPosition)
+          gl.vertexAtrribPointer(aVertextPosition, vertexSetSize, gl.FLOAT, false, 0, 0)
+          gl.drawArrays(gl.TRIANGLES, 0, vertextSetCount)
+        }
+      }
+    },
     globe () {
     },
     bar () {
